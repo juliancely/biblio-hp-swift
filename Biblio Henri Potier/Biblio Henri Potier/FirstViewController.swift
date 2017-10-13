@@ -7,36 +7,47 @@
 //
 
 import UIKit
-import Alamofire
+import AlamofireImage
 
-class FirstViewController: UIViewController {
+class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
+    @IBOutlet weak var booksTable: UITableView!
+    
+    private var books: [Book] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        title = "Sélectionnez"
         
+        booksTable.delegate = self
+        booksTable.dataSource = self
         
-        Alamofire.request("http://henri-potier.xebia.fr/books", method: .get).responseJSON { response in
-            print("Request: \(String(describing: response.request))")   // original url request
-            print("Response: \(String(describing: response.response))") // http url response
-            print("Result: \(response.result)")                         // response serialization result
-            
-            if let json = response.result.value {
-                print("JSON: \(json)") // serialized json response
-            }
-            
-            if let data = response.data, let utf8Text = String(data: data, encoding: .utf8) {
-                print("Data: \(utf8Text)") // original server data as UTF8 string
-            }
-        }
-        
-        // Do any additional setup after loading the view, typically from a nib.
+        ModelAPI.getBooks(completionHandler: { books in
+            self.books = books
+            self.booksTable.reloadData()
+        });
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
-
-
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return books.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "BookTableViewCell") as! BookTableViewCell
+        if let url = URL(string: books[indexPath.row].getCover()) {
+            cell.cover.af_setImage(withURL: url)
+        }
+        cell.title.text = books[indexPath.row].getTitle() + " : " + books[indexPath.row].getPrice().description + " €"
+        cell.descript.text = books[indexPath.row].getSynopsis().firstObject as? String
+        return cell
+    }
 }
 
