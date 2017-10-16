@@ -21,7 +21,9 @@
 		694C48361F9100A80014BCC2 /* ModelAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 694C48351F9100A80014BCC2 /* ModelAPI.swift */; };
 		694C48A11F910EDB0014BCC2 /* AlamofireImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 694C48841F910D6B0014BCC2 /* AlamofireImage.framework */; };
 		694C48A21F910EDB0014BCC2 /* AlamofireImage.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 694C48841F910D6B0014BCC2 /* AlamofireImage.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		694C48A81F9113F80014BCC2 /* BookTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 694C48A71F9113F80014BCC2 /* BookTableViewCell.swift */; };
+		694C48A81F9113F80014BCC2 /* TableViewCells.swift in Sources */ = {isa = PBXBuildFile; fileRef = 694C48A71F9113F80014BCC2 /* TableViewCells.swift */; };
+		694C48C21F95179B0014BCC2 /* BusinessController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 694C48C11F95179B0014BCC2 /* BusinessController.swift */; };
+		694C48D11F95185A0014BCC2 /* Offer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 694C48D01F95185A0014BCC2 /* Offer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -175,7 +177,9 @@
 		694C48321F8FCEBF0014BCC2 /* Book.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Book.swift; sourceTree = "<group>"; };
 		694C48351F9100A80014BCC2 /* ModelAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelAPI.swift; sourceTree = "<group>"; };
 		694C48771F910D6B0014BCC2 /* AlamofireImage.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = AlamofireImage.xcodeproj; path = AlamofireImage/AlamofireImage.xcodeproj; sourceTree = "<group>"; };
-		694C48A71F9113F80014BCC2 /* BookTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookTableViewCell.swift; sourceTree = "<group>"; };
+		694C48A71F9113F80014BCC2 /* TableViewCells.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewCells.swift; sourceTree = "<group>"; };
+		694C48C11F95179B0014BCC2 /* BusinessController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusinessController.swift; sourceTree = "<group>"; };
+		694C48D01F95185A0014BCC2 /* Offer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Offer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -214,15 +218,13 @@
 			isa = PBXGroup;
 			children = (
 				694C47EC1F8F8BAF0014BCC2 /* AppDelegate.swift */,
-				694C47EE1F8F8BAF0014BCC2 /* FirstViewController.swift */,
-				694C47F01F8F8BAF0014BCC2 /* SecondViewController.swift */,
 				694C47F21F8F8BAF0014BCC2 /* Main.storyboard */,
 				694C47F51F8F8BAF0014BCC2 /* Assets.xcassets */,
 				694C47F71F8F8BAF0014BCC2 /* LaunchScreen.storyboard */,
 				694C47FA1F8F8BAF0014BCC2 /* Info.plist */,
-				694C48321F8FCEBF0014BCC2 /* Book.swift */,
-				694C48351F9100A80014BCC2 /* ModelAPI.swift */,
-				694C48A71F9113F80014BCC2 /* BookTableViewCell.swift */,
+				694C48D21F951ABF0014BCC2 /* M */,
+				694C48D31F951ACE0014BCC2 /* V */,
+				694C48D41F951ADE0014BCC2 /* C */,
 			);
 			path = "Biblio Henri Potier";
 			sourceTree = "<group>";
@@ -253,6 +255,34 @@
 				694C48901F910D6B0014BCC2 /* AlamofireImage.framework */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		694C48D21F951ABF0014BCC2 /* M */ = {
+			isa = PBXGroup;
+			children = (
+				694C48321F8FCEBF0014BCC2 /* Book.swift */,
+				694C48D01F95185A0014BCC2 /* Offer.swift */,
+				694C48351F9100A80014BCC2 /* ModelAPI.swift */,
+			);
+			name = M;
+			sourceTree = "<group>";
+		};
+		694C48D31F951ACE0014BCC2 /* V */ = {
+			isa = PBXGroup;
+			children = (
+				694C47EE1F8F8BAF0014BCC2 /* FirstViewController.swift */,
+				694C47F01F8F8BAF0014BCC2 /* SecondViewController.swift */,
+				694C48A71F9113F80014BCC2 /* TableViewCells.swift */,
+			);
+			name = V;
+			sourceTree = "<group>";
+		};
+		694C48D41F951ADE0014BCC2 /* C */ = {
+			isa = PBXGroup;
+			children = (
+				694C48C11F95179B0014BCC2 /* BusinessController.swift */,
+			);
+			name = C;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -443,12 +473,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				694C48D11F95185A0014BCC2 /* Offer.swift in Sources */,
 				694C48331F8FCEBF0014BCC2 /* Book.swift in Sources */,
 				694C47F11F8F8BAF0014BCC2 /* SecondViewController.swift in Sources */,
 				694C47ED1F8F8BAF0014BCC2 /* AppDelegate.swift in Sources */,
 				694C47EF1F8F8BAF0014BCC2 /* FirstViewController.swift in Sources */,
-				694C48A81F9113F80014BCC2 /* BookTableViewCell.swift in Sources */,
+				694C48A81F9113F80014BCC2 /* TableViewCells.swift in Sources */,
 				694C48361F9100A80014BCC2 /* ModelAPI.swift in Sources */,
+				694C48C21F95179B0014BCC2 /* BusinessController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

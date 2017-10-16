@@ -14,6 +14,7 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
     @IBOutlet weak var booksTable: UITableView!
     
     private var books: [Book] = []
+    private let appDelegate = (UIApplication.shared.delegate as! AppDelegate)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,6 +49,14 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
         cell.title.text = books[indexPath.row].getTitle() + " : " + books[indexPath.row].getPrice().description + " €"
         cell.descript.text = books[indexPath.row].getSynopsis().firstObject as? String
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        appDelegate.add(book: books[indexPath.row])
+    }
+    
+    func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
+        appDelegate.delete(book: books[indexPath.row])
     }
 }
 

@@ -10,9 +10,22 @@ import UIKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
+    
+    private var selectedBooks: [Book] = []
 
     var window: UIWindow?
 
+    func add(book: Book) {
+        self.selectedBooks.append(book)
+    }
+    
+    func delete(book: Book) {
+        self.selectedBooks = self.selectedBooks.filter({ $0.getTitle() != book.getTitle() })
+    }
+    
+    func getSelectedBooks() -> [Book] {
+        return self.selectedBooks
+    }
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
@@ -40,7 +53,5 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
-
-
 }
 

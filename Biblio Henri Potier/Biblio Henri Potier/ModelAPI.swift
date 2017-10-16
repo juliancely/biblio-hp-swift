@@ -36,21 +36,27 @@ class ModelAPI {
     /*
      Get offers for isbns
      **/
-    public class func getOffers(for isbns: NSArray, completionHandler:@escaping ([Book])->()) {
+    public class func getOffers(for books: [Book], completionHandler:@escaping ([Offer])->()) {
+        let isbns: NSMutableArray = NSMutableArray()
+        for book in books {
+            isbns.add(book.getISBN())
+        }
         let isbnString = isbns.componentsJoined(by: ",")
         Alamofire.request("http://henri-potier.xebia.fr/books/\(isbnString)/commercialOffers", method: .get).responseJSON { response in
             if response.response?.statusCode == 200 {
                 if let json = response.result.value {
                     print("JSON: \(json)") // serialized json response
                 }
-                if let booksArray = response.result.value as? NSArray {
-                    var books: [Book] = []
-                    for bookData in booksArray {
-                        if let bookDict = bookData as? NSDictionary {
-                            books.append(Book(dict: bookDict))
+                if let offersDict = response.result.value as? NSDictionary {
+                    if let offersArray = offersDict.object(forKey: "offers") as? NSArray {
+                        var offers: [Offer] = []
+                        for offerData in offersArray {
+                            if let offerDict = offerData as? NSDictionary {
+                                offers.append(Offer(dict: offerDict))
+                            }
                         }
+                        completionHandler(offers)
                     }
-                    completionHandler(books)
                 }
             }
         }
