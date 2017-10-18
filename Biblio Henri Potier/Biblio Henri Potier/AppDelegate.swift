@@ -12,6 +12,7 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
     private var selectedBooks: [Book] = []
+    private var tababarController: UITabBarController!
 
     var window: UIWindow?
 
@@ -23,12 +24,25 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.selectedBooks = self.selectedBooks.filter({ $0.getTitle() != book.getTitle() })
     }
     
+    func deleteBooks() {
+        self.selectedBooks.removeAll(keepingCapacity: false)
+        if let navC = tababarController.viewControllers?[0] as? UINavigationController, let firstVC = navC.viewControllers[0] as? FirstViewController {
+            firstVC.deselectRows()
+        }
+    }
+    
     func getSelectedBooks() -> [Book] {
         return self.selectedBooks
     }
+    
+    func setTabBarIndex(index: Int) {
+        tababarController.selectedIndex = index
+    }
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        if let tbController = self.window!.rootViewController as? UITabBarController {
+            tababarController = tbController
+        }
         return true
     }
 

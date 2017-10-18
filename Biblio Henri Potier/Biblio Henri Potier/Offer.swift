@@ -11,10 +11,10 @@ import Foundation
 class Offer {
     
     private var type: String!
-    private var value: Int!
-    private var sliceValue: Int?
+    private var value: Double!
+    private var sliceValue: Double?
     
-    init(value: Int) {
+    init(value: Double) {
         self.value = value
     }
     
@@ -22,19 +22,24 @@ class Offer {
         if let type = dict["type"] as? String {
             self.type = type
         }
-        if let value = dict["value"] as? Int {
+        if let value = dict["value"] as? Double {
             self.value = value
         }
-        if let sliceValue = dict["sliceValue"] as? Int? {
+        if let sliceValue = dict["sliceValue"] as? Double? {
             self.sliceValue = sliceValue
         }
     }
     
-    public func getValue() -> Int {
-        return self.value
-    }
-    
-    public func getSliceValue() -> Int? {
-        return self.sliceValue
+    public func getReduction(for price: Double) -> Double {
+        switch self.type {
+        case "percentage":
+            return price * value / 100
+        case "minus":
+            return value
+        case "slice":
+            return Double(Int(price) / 100 * Int(value))
+        default:
+            return 0
+        }
     }
 }

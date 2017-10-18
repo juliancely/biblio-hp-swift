@@ -17,9 +17,6 @@ class ModelAPI {
     public class func getBooks(completionHandler:@escaping ([Book])->()) {
         Alamofire.request("http://henri-potier.xebia.fr/books", method: .get).responseJSON { response in
             if response.response?.statusCode == 200 {
-                if let json = response.result.value {
-                    print("JSON: \(json)") // serialized json response
-                }
                 if let booksArray = response.result.value as? NSArray {
                     var books: [Book] = []
                     for bookData in booksArray {
@@ -44,9 +41,6 @@ class ModelAPI {
         let isbnString = isbns.componentsJoined(by: ",")
         Alamofire.request("http://henri-potier.xebia.fr/books/\(isbnString)/commercialOffers", method: .get).responseJSON { response in
             if response.response?.statusCode == 200 {
-                if let json = response.result.value {
-                    print("JSON: \(json)") // serialized json response
-                }
                 if let offersDict = response.result.value as? NSDictionary {
                     if let offersArray = offersDict.object(forKey: "offers") as? NSArray {
                         var offers: [Offer] = []

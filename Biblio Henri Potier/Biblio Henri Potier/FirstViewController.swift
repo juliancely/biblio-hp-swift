@@ -18,15 +18,21 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "Sélectionnez"
+        title = Wording.titleSelect
         
         booksTable.delegate = self
         booksTable.dataSource = self
         
-        ModelAPI.getBooks(completionHandler: { books in
+        BusinessController.getBooks(completionHandler: { books in
             self.books = books
             self.booksTable.reloadData()
-        });
+        })
+    }
+    
+    public func deselectRows() {
+        for i in 0 ... books.count - 1 {
+            booksTable.deselectRow(at: IndexPath(row: i, section: 0), animated: false)
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -46,7 +52,8 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
         if let url = URL(string: books[indexPath.row].getCover()) {
             cell.cover.af_setImage(withURL: url)
         }
-        cell.title.text = books[indexPath.row].getTitle() + " : " + books[indexPath.row].getPrice().description + " €"
+        cell.title.text = books[indexPath.row].getTitle()
+        cell.price.text = books[indexPath.row].getPrice().description + " €"
         cell.descript.text = books[indexPath.row].getSynopsis().firstObject as? String
         return cell
     }

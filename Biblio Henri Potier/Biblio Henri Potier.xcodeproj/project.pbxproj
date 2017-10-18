@@ -24,6 +24,7 @@
 		694C48A81F9113F80014BCC2 /* TableViewCells.swift in Sources */ = {isa = PBXBuildFile; fileRef = 694C48A71F9113F80014BCC2 /* TableViewCells.swift */; };
 		694C48C21F95179B0014BCC2 /* BusinessController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 694C48C11F95179B0014BCC2 /* BusinessController.swift */; };
 		694C48D11F95185A0014BCC2 /* Offer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 694C48D01F95185A0014BCC2 /* Offer.swift */; };
+		694C48FF1F97E60A0014BCC2 /* Wording.swift in Sources */ = {isa = PBXBuildFile; fileRef = 694C48FE1F97E60A0014BCC2 /* Wording.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -180,6 +181,7 @@
 		694C48A71F9113F80014BCC2 /* TableViewCells.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewCells.swift; sourceTree = "<group>"; };
 		694C48C11F95179B0014BCC2 /* BusinessController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusinessController.swift; sourceTree = "<group>"; };
 		694C48D01F95185A0014BCC2 /* Offer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Offer.swift; sourceTree = "<group>"; };
+		694C48FE1F97E60A0014BCC2 /* Wording.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Wording.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -222,6 +224,7 @@
 				694C47F51F8F8BAF0014BCC2 /* Assets.xcassets */,
 				694C47F71F8F8BAF0014BCC2 /* LaunchScreen.storyboard */,
 				694C47FA1F8F8BAF0014BCC2 /* Info.plist */,
+				694C48FE1F97E60A0014BCC2 /* Wording.swift */,
 				694C48D21F951ABF0014BCC2 /* M */,
 				694C48D31F951ACE0014BCC2 /* V */,
 				694C48D41F951ADE0014BCC2 /* C */,
@@ -476,6 +479,7 @@
 				694C48D11F95185A0014BCC2 /* Offer.swift in Sources */,
 				694C48331F8FCEBF0014BCC2 /* Book.swift in Sources */,
 				694C47F11F8F8BAF0014BCC2 /* SecondViewController.swift in Sources */,
+				694C48FF1F97E60A0014BCC2 /* Wording.swift in Sources */,
 				694C47ED1F8F8BAF0014BCC2 /* AppDelegate.swift in Sources */,
 				694C47EF1F8F8BAF0014BCC2 /* FirstViewController.swift in Sources */,
 				694C48A81F9113F80014BCC2 /* TableViewCells.swift in Sources */,

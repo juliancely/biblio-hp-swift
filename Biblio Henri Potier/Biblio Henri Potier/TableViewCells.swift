@@ -10,9 +10,10 @@ import UIKit
 
 class BookTableViewCell: UITableViewCell {
     
-    @IBOutlet weak var cover: UIImageView!;
-    @IBOutlet weak var title: UILabel!;
-    @IBOutlet weak var descript: UILabel!;
+    @IBOutlet weak var cover: UIImageView!
+    @IBOutlet weak var title: UILabel!
+    @IBOutlet weak var descript: UILabel!
+    @IBOutlet weak var price: UILabel!
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -25,7 +26,7 @@ class BookTableViewCell: UITableViewCell {
 
 class SummaryTitleTableViewCell: UITableViewCell {
     
-    @IBOutlet weak var title: UILabel!;
+    @IBOutlet weak var title: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -38,9 +39,9 @@ class SummaryTitleTableViewCell: UITableViewCell {
 
 class SummaryTableViewCell: UITableViewCell {
     
-    @IBOutlet weak var cover: UIImageView!;
-    @IBOutlet weak var title: UILabel!;
-    @IBOutlet weak var price: UILabel!;
+    @IBOutlet weak var cover: UIImageView!
+    @IBOutlet weak var title: UILabel!
+    @IBOutlet weak var price: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
